@@ -1,0 +1,41 @@
+.app {
+  display: flex;
+
+  align-items: center;
+}
+
+.app__title {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.app__container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 5rem;
+}
+
+.app__form,
+.app__preview {
+  background-color: #e9f1fb;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .app__container {
+    flex-direction: column;
+  }
+
+  .app__form,
+  .app__preview {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}

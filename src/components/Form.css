@@ -1,0 +1,5 @@
+.form__button-checkbox--group {
+  display: flex;
+  justify-content: space-between;
+
+}

@@ -1,45 +1,42 @@
 import React from "react";
-
-const seasons = [
-  { value: "verão", color: "lightyellow" },
-  { value: "outono", color: "sandybrown" },
-  { value: "inverno", color: "lightblue" },
-  { value: "primavera", color: "lightpink" },
-];
+import { SEASONS } from "../helpers/constants";
+import "./Preview.css";
 
 const Preview = ({ formData }) => {
   const { favoriteSeason } = formData;
 
-  // Encontrar a cor da estação favorita
-  const favoriteSeasonColor = seasons.find(
-    (season) => season.value === favoriteSeason.toLowerCase()
-  )?.color || "gray";
+  const favoriteSeasonColor =
+    SEASONS.find((season) => season.value === favoriteSeason.toLowerCase())
+      ?.color || "gray";
 
   return (
-    <div
-      style={{
-        border: `2px solid ${favoriteSeasonColor}`,
-        padding: "10px",
-      }}
-    >
-      <h2>Preview das Informações</h2>
-      <p>
-        Nome: {formData.firstName} {formData.lastName}
+    <div className="preview" style={{ borderColor: favoriteSeasonColor }}>
+      <h2 className="preview__header">Information Preview</h2>
+      <p className="preview__item">
+        <span className="preview__label">Name:</span> {formData.firstName}{" "}
+        {formData.lastName}
       </p>
-      <p>Descrição da Cidade: {formData.cityDescription}</p>
-      <p>Estação Favorita: {favoriteSeason}</p>
-      <p>
-        Estações Não Favoritas:{" "}
-        {seasons
-          .map((season) => season.value)
+      <p className="preview__item">
+        <span className="preview__label">City Description:</span>{" "}
+        {formData.cityDescription}
+      </p>
+      <p className="preview__item">
+        <span className="preview__label">Favorite Season:</span>{" "}
+        <span className="preview__season">{favoriteSeason}</span>
+      </p>
+      <p className="preview__item">
+        <span className="preview__label">Least Favorite Seasons:</span>{" "}
+        {SEASONS.map((season) => season.value)
           .filter((season) => season !== favoriteSeason.toLowerCase())
           .join(", ")}
       </p>
-      <p>
-        Acha que sopa é janta?{" "}
-        {formData.soupIsDinner ? formData.soupIsDinner : "Não respondeu"}
+      <p className="preview__item">
+        <span className="preview__label">Is soup dinner?</span>{" "}
+        {formData.soupIsDinner ? formData.soupIsDinner : "No answer"}
       </p>
-      <p>{formData.termsAccepted ? "Termos aceitos" : ""}</p>
+      <p className="preview__terms">
+        {formData.termsAccepted ? "Terms accepted" : ""}
+      </p>
     </div>
   );
 };

@@ -1,0 +1,55 @@
+:root {
+  --primary-color: #f4f9ff;
+  --secondary-color: #e1f9ff;
+  --accent-color: #d93d3d;
+  --text-color: #260a0a;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+input,
+textarea,
+select {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0.625rem;
+  border-radius: 2rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}

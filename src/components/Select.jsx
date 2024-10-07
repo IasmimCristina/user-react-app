@@ -1,12 +1,13 @@
-import React from 'react';
+import React from "react";
+import "./Select.css";
 
-const seasons = ['Verão', 'Outono', 'Inverno', 'Primavera'];
+const seasons = ["Summer", "Fall", "Winter", "Spring"];
 
 const Select = ({ label, value, onChange }) => (
-  <div>
-    <label>{label}</label>
-    <select value={value} onChange={onChange}>
-      <option value="">Selecione uma estação</option>
+  <div className="select">
+    <label className="select__label">{label}</label>
+    <select className="select__input" value={value} onChange={onChange}>
+      <option value="">Select a season</option>
       {seasons.map((season) => (
         <option key={season} value={season}>
           {season}
