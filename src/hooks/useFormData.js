@@ -7,7 +7,7 @@ const useFormData = () => {
     cityDescription: "",
     favoriteSeason: "",
     soupIsDinner: "",
-    termsAccepted: false,
+    areTermsAccepted: false,
   });
 
   const resetFormData = () => {
@@ -17,14 +17,26 @@ const useFormData = () => {
       cityDescription: "",
       favoriteSeason: "",
       soupIsDinner: "",
-      termsAccepted: false,
+      areTermsAccepted: false,
     });
+  };
+
+  const isFormFilled = () => {
+    return (
+      formData.firstName ||
+      formData.lastName ||
+      formData.cityDescription ||
+      formData.favoriteSeason ||
+      formData.soupIsDinner ||
+      formData.areTermsAccepted
+    );
   };
 
   return {
     formData,
     setFormData,
     resetFormData,
+    isFormFilled,
   };
 };
 

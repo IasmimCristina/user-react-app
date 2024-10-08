@@ -8,7 +8,7 @@ import "./Form.css";
 
 const Form = ({ formData, setFormData, onSubmit }) => {
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="form">
       <Input
         label="First name"
         value={formData.firstName}
@@ -44,9 +44,9 @@ const Form = ({ formData, setFormData, onSubmit }) => {
       <div className="form__button-checkbox--group">
         <Checkbox
           label="I accept the terms"
-          checked={formData.termsAccepted}
+          checked={formData.areTermsAccepted}
           onChange={(e) =>
-            setFormData({ ...formData, termsAccepted: e.target.checked })
+            setFormData({ ...formData, areTermsAccepted: e.target.checked })
           }
         />
         <button type="submit">Submit</button>

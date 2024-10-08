@@ -2,30 +2,36 @@ import React from "react";
 import { SEASONS } from "../helpers/constants";
 import "./Preview.css";
 
-const Preview = ({ formData }) => {
-  const { firstName, lastName, cityDescription, favoriteSeason, soupIsDinner, termsAccepted } = formData;
+const Preview = ({ formData, isFormFilled }) => {
+  const {
+    firstName,
+    lastName,
+    cityDescription,
+    favoriteSeason,
+    soupIsDinner,
+    areTermsAccepted,
+  } = formData;
 
   const favoriteSeasonColor =
     SEASONS.find((season) => season.value === favoriteSeason.toLowerCase())
       ?.color || "gray";
 
-  const isFormFilled =
-    firstName || lastName || cityDescription || favoriteSeason || soupIsDinner || termsAccepted;
-
   return (
     <div className="preview" style={{ borderColor: favoriteSeasonColor }}>
       <h2 className="preview__header">Information Preview</h2>
 
-      {isFormFilled ? (
+      {isFormFilled() ? (
         <>
           {(firstName || lastName) && (
             <p className="preview__item">
-              <span className="preview__label">Name:</span> {firstName} {lastName}
+              <span className="preview__label">Name:</span> {firstName}{" "}
+              {lastName}
             </p>
           )}
           {cityDescription && (
             <p className="preview__item">
-              <span className="preview__label">City description:</span> {cityDescription}
+              <span className="preview__label">City description:</span>{" "}
+              {cityDescription}
             </p>
           )}
           {favoriteSeason && (
@@ -42,14 +48,13 @@ const Preview = ({ formData }) => {
                 .join(", ")}
             </p>
           )}
-          {(soupIsDinner !== "") && (
+          {soupIsDinner !== "" && (
             <p className="preview__item">
-              <span className="preview__label">Is soup dinner?</span> {soupIsDinner ? soupIsDinner : "No answer"}
+              <span className="preview__label">Is soup dinner?</span>{" "}
+              {soupIsDinner ? soupIsDinner : "No answer"}
             </p>
           )}
-          {termsAccepted && (
-            <p className="preview__terms">Terms accepted</p>
-          )}
+          {areTermsAccepted && <p className="preview__terms">Terms accepted</p>}
         </>
       ) : (
         <p className="preview__no-data">No form data has been informed yet.</p>

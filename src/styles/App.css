@@ -16,16 +16,20 @@
   gap: 5rem;
 }
 
-.app__form,
-.app__preview {
+.app__form{
   background-color: #e9f1fb;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  width: 48%;
   display: flex;
   flex-direction: column;
 }
+
+.app__form {
+  width: 35rem;
+}
+
+
 
 @media (max-width: 768px) {
   .app__container {

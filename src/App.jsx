@@ -5,11 +5,11 @@ import useFormData from "./hooks/useFormData";
 import "./styles/App.css";
 
 function App() {
-  const { formData, setFormData, resetFormData } = useFormData();
+  const { formData, setFormData, resetFormData, isFormFilled } = useFormData();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    alert("Information submitted");
+    alert("Information submitted! :D");
     resetFormData();
   };
 
@@ -24,7 +24,7 @@ function App() {
             onSubmit={handleFormSubmit}
           />
         </div>
-        <Preview formData={formData} />
+        <Preview formData={formData} isFormFilled={isFormFilled} />
       </div>
     </div>
   );
