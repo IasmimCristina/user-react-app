@@ -1,11 +1,11 @@
 import React from "react";
 import Form from "./components/Form";
 import Preview from "./components/Preview";
-import useFormData from "./hooks/useFormData"; // Importe o hook
+import useFormData from "./hooks/useFormData";
 import "./styles/App.css";
 
 function App() {
-  const { formData, setFormData, resetFormData } = useFormData(); // Use o hook
+  const { formData, setFormData, resetFormData } = useFormData();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();

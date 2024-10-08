@@ -1,16 +1,10 @@
 import React from "react";
-import { MAX_CHARACTERS, MESSAGES } from "../helpers/constants";
+import useCharacterCount from "../hooks/useCharacterCount"; 
+import { MESSAGES,MAX_CHARACTERS } from "../helpers/constants";
 import "./TextArea.css";
 
 const TextArea = ({ label, value, onChange }) => {
-  const remainingChars = MAX_CHARACTERS - value.length;
-
-  const messageClass =
-    remainingChars > 35
-      ? "text-area__message--normal"
-      : remainingChars > 15
-      ? "text-area__message--warning"
-      : "text-area__message--danger";
+  const { remainingChars, messageClass, message } = useCharacterCount(value); 
 
   return (
     <div className="text-area">
@@ -25,11 +19,7 @@ const TextArea = ({ label, value, onChange }) => {
         maxLength={MAX_CHARACTERS}
       />
       <p className={`text-area__message ${messageClass}`}>
-        {remainingChars > 35 && <span>{MESSAGES.normal}</span>}
-        {remainingChars <= 35 && remainingChars > 15 && (
-          <span>{MESSAGES.warning}</span>
-        )}
-        {remainingChars <= 15 && <span>{MESSAGES.danger}</span>}
+        <span>{message}</span>
       </p>
     </div>
   );
