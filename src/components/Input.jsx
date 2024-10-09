@@ -1,7 +1,7 @@
 import React from 'react';
 import './Input.css';
 
-const Input = ({ label, value, onChange }) => (
+export const Input = ({ label, value, onChange }) => (
   <div className="input">
     <label className="input__label">{label}</label>
     <input
@@ -13,5 +13,3 @@ const Input = ({ label, value, onChange }) => (
     />
   </div>
 );
-
-export default Input;

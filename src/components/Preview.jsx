@@ -2,7 +2,7 @@ import React from "react";
 import { SEASONS } from "../helpers/constants";
 import "./Preview.css";
 
-const Preview = ({ formData, isFormFilled }) => {
+export const Preview = ({ formData, isAnyFieldFilled }) => {
   const {
     firstName,
     lastName,
@@ -20,7 +20,7 @@ const Preview = ({ formData, isFormFilled }) => {
     <div className="preview" style={{ borderColor: favoriteSeasonColor }}>
       <h2 className="preview__header">Information Preview</h2>
 
-      {isFormFilled() ? (
+      {isAnyFieldFilled() ? (
         <>
           {(firstName || lastName) && (
             <p className="preview__item">
@@ -63,4 +63,4 @@ const Preview = ({ formData, isFormFilled }) => {
   );
 };
 
-export default Preview;
+

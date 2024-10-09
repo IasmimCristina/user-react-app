@@ -10,10 +10,6 @@ body {
   color: var(--text-color);
   margin: 0;
   font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 
@@ -33,12 +29,12 @@ button {
   padding: 0.625rem 1rem;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-border-radius: 1rem;
-font-weight: bold;
+  border-radius: 1rem;
+  font-weight: bold;
 }
 
 button:hover {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background-color: var(--text-color);
   color: var(--accent-color);
 }

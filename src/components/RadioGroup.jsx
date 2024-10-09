@@ -1,7 +1,7 @@
 import React from 'react';
 import './RadioGroup.css';
 
-const RadioGroup = ({ label, options, selected, onChange }) => (
+export const RadioGroup = ({ label, options, selected, onChange }) => (
   <fieldset className="radio-group">
     <legend className="radio-group__label">{label}</legend>
     {options.map((option) => (
@@ -21,4 +21,4 @@ const RadioGroup = ({ label, options, selected, onChange }) => (
   </fieldset>
 );
 
-export default RadioGroup;
+

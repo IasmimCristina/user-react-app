@@ -1,17 +1,12 @@
 import React from "react";
-import Form from "./components/Form";
-import Preview from "./components/Preview";
+import { Form } from "./components/Form";
+import { Preview } from "./components/Preview";
 import useFormData from "./hooks/useFormData";
 import "./styles/App.css";
 
 function App() {
-  const { formData, setFormData, resetFormData, isFormFilled } = useFormData();
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    alert("Information submitted! :D");
-    resetFormData();
-  };
+  const { formData, setFormData, handleFormSubmit, isAnyFieldFilled } =
+    useFormData();
 
   return (
     <div className="app">
@@ -24,7 +19,7 @@ function App() {
             onSubmit={handleFormSubmit}
           />
         </div>
-        <Preview formData={formData} isFormFilled={isFormFilled} />
+        <Preview formData={formData} isAnyFieldFilled={isAnyFieldFilled} />
       </div>
     </div>
   );

@@ -1,9 +1,13 @@
 import React from "react";
-import { getRemainingChars, getMessageClass, getMessage } from "../helpers/functions";
+import {
+  getRemainingChars,
+  getMessageClass,
+  getMessage,
+} from "../helpers/functions";
 import { MESSAGES, MAX_CHARACTERS } from "../helpers/constants";
 import "./TextArea.css";
 
-const TextArea = ({ label, value, onChange }) => {
+export const TextArea = ({ label, value, onChange }) => {
   return (
     <div className="text-area">
       <label className="text-area__label">{label}</label>
@@ -16,11 +20,13 @@ const TextArea = ({ label, value, onChange }) => {
         onChange={onChange}
         maxLength={MAX_CHARACTERS}
       />
-      <p className={`text-area__message ${getMessageClass(getRemainingChars(value))}`}>
+      <p
+        className={`text-area__message ${getMessageClass(
+          getRemainingChars(value)
+        )}`}
+      >
         <span>{getMessage(getRemainingChars(value))}</span>
       </p>
     </div>
   );
 };
-
-export default TextArea;

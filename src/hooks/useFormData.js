@@ -21,22 +21,36 @@ const useFormData = () => {
     });
   };
 
-  const isFormFilled = () => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    alert("Information submitted! :D");
+    resetFormData();
+  };
+
+  const isAnyFieldFilled = () => {
+    const {
+      firstName,
+      lastName,
+      cityDescription,
+      favoriteSeason,
+      soupIsDinner,
+      areTermsAccepted,
+    } = formData;
     return (
-      formData.firstName ||
-      formData.lastName ||
-      formData.cityDescription ||
-      formData.favoriteSeason ||
-      formData.soupIsDinner ||
-      formData.areTermsAccepted
+      firstName ||
+      lastName ||
+      cityDescription ||
+      favoriteSeason ||
+      soupIsDinner ||
+      areTermsAccepted
     );
   };
 
   return {
     formData,
     setFormData,
-    resetFormData,
-    isFormFilled,
+    handleFormSubmit,
+    isAnyFieldFilled,
   };
 };
 
