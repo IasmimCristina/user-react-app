@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "./components/Form";
 import { Preview } from "./components/Preview";
-import useFormData from "./hooks/useFormData";
+import { useFormData } from "./hooks/useFormData";
 import "./styles/App.css";
 
 function App() {
